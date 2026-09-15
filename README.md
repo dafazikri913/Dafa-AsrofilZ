@@ -1,6 +1,6 @@
 # 🚀 Dafa Asrofil Z — Personal Portfolio
 
-Website portfolio pribadi yang menampilkan karya, pengalaman, dan keahlian di bidang pengembangan web modern.
+A modern personal portfolio website showcasing projects, work experience, and expertise in web development.
 
 ## 🛠️ Tech Stack
 
@@ -9,16 +9,16 @@ Website portfolio pribadi yang menampilkan karya, pengalaman, dan keahlian di bi
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Animations**: [Framer Motion / Motion](https://motion.dev/)
 
-## 🚀 Cara Menjalankan Secara Lokal
+## 🚀 Getting Started
 
 ```bash
-# 1. Install dependensi
+# 1. Install dependencies
 npm install
 
-# 2. Jalankan server lokal
+# 2. Run local development server
 npm run dev
 
-# 3. Build produksi
+# 3. Build for production
 npm run build
 ```
 
