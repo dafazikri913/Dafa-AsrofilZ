@@ -23,7 +23,7 @@ export function ContactSection({ socialLinks, emailAddress = 'hello@example.com'
   const mailtoUrl = `mailto:${emailAddress}`
 
   return (
-    <section id="contact" className="py-12 md:py-14 px-4 max-w-3xl mx-auto pb-28 border-t border-purple-500/10">
+    <section id="contact" className="py-12 md:py-14 px-4 max-w-3xl mx-auto pb-44 md:pb-48 border-t border-purple-500/10">
       <SectionHeading>Contact Me</SectionHeading>
 
       <motion.div
@@ -131,6 +131,15 @@ export function ContactSection({ socialLinks, emailAddress = 'hello@example.com'
             )
           })}
         </motion.div>
+
+        {/* Footer Note */}
+        <motion.p
+          variants={fadeInUpVariant}
+          transition={{ duration: 0.5 }}
+          className="text-xs text-white/30 pt-8"
+        >
+          © 2026 Dafa Asrofil Z. All rights reserved.
+        </motion.p>
       </motion.div>
     </section>
   )
