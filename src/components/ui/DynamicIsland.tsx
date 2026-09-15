@@ -79,7 +79,7 @@ export function DynamicIsland({ navItems, socialItems }: DynamicIslandProps) {
   return (
     <div
       className={cn(
-        'fixed bottom-6 left-1/2 -translate-x-1/2 z-50',
+        'fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transform-gpu',
         'flex items-center gap-1 px-3 py-2',
         'bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg shadow-black/40'
       )}
