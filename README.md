@@ -1,33 +1,26 @@
-# Portfolio - Dafa Asrofil Z
+# 🚀 Dafa Asrofil Z — Personal Portfolio
 
-Website Portfolio Pribadi modern berbasis **React 19**, **TypeScript**, **Vite**, dan **Tailwind CSS**.
+Website portfolio pribadi yang menampilkan karya, pengalaman, dan keahlian di bidang pengembangan web modern.
 
----
+## 🛠️ Tech Stack
 
-## ⚡ Fitur Utama
+- **Framework**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion / Motion](https://motion.dev/)
 
-- 🎨 **Modern Design**: Tampilan antarmuka futuristik dengan efek glassmorphism & gradien animasi.
-- 📱 **Responsif**: Responsif di semua perangkat (Desktop, Tablet, dan Smartphone).
-- ⚡ **Performa Tinggi**: Dibangun menggunakan Vite & React 19 untuk waktu muat yang cepat.
-- 🛠️ **Desain Komponen Modular**: Struktur komponen yang rapi dan mudah dirawat.
-
----
-
-## 🚀 Cara Menjalankan Proyek Secara Lokal
+## 🚀 Cara Menjalankan Secara Lokal
 
 ```bash
-# 1. Clone repository ini
-git clone https://github.com/dafazikri913/Dafa-AsrofilZ.git
-
-# 2. Masuk ke direktori proyek
-cd Dafa-AsrofilZ
-
-# 3. Install dependensi
+# 1. Install dependensi
 npm install
 
-# 4. Jalankan server pengembangan
+# 2. Jalankan server lokal
 npm run dev
 
-# 5. Build untuk produksi
+# 3. Build produksi
 npm run build
 ```
+
+---
+© 2026 Dafa Asrofil Z. All rights reserved.
