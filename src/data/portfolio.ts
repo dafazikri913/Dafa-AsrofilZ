@@ -119,7 +119,7 @@ export const HERO = {
   expertise: 'Frontend Developer & UI/UX Specialist',
   tagline: 'Pengembang Web yang berfokus pada pembuatan antarmuka antarmuka modern, cepat, dan responsif.',
   roles: ['Frontend Developer', 'UI/UX Specialist'],
-  avatarSrc: '/placeholder-avatar.jpg',
+  avatarSrc: '/profile.jpg',
 }
 
 // ─── About ────────────────────────────────────────────────────────────────────
