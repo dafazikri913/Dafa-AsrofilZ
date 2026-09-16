@@ -47,10 +47,10 @@ export function ContactSection({ socialLinks, emailAddress = 'hello@example.com'
         <motion.div
           variants={fadeInUpVariant}
           transition={{ duration: 0.5 }}
-          className="relative bg-gradient-to-b from-purple-950/40 via-white/[0.05] to-white/[0.02] border border-purple-500/30 rounded-3xl p-8 md:p-10 shadow-2xl shadow-purple-950/40 backdrop-blur-md overflow-hidden group hover:border-purple-500/60 transition-all duration-300"
+          className="relative bg-[#0e0826]/90 border border-purple-500/30 rounded-3xl p-8 md:p-10 shadow-2xl shadow-purple-950/60 overflow-hidden group hover:border-purple-500/60 transition-all duration-300"
         >
           {/* Subtle Ambient Background Glow */}
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-600/30 transition-all duration-500" />
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.3)_0%,transparent_70%)] pointer-events-none transition-all duration-500" />
 
           <div className="relative z-10 flex flex-col items-center gap-6">
             <div className="w-16 h-16 rounded-2xl bg-purple-900/50 border border-purple-400/40 flex items-center justify-center text-purple-300 shadow-lg shadow-purple-950/80 group-hover:scale-110 transition-transform duration-300">
@@ -69,9 +69,9 @@ export function ContactSection({ socialLinks, emailAddress = 'hello@example.com'
               {/* Mailto / Default Mail App Button */}
               <a
                 href={mailtoUrl}
-                className="flex-1 min-w-[160px] inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-medium transition-all shadow-lg shadow-purple-900/50 hover:shadow-purple-700/60 hover:-translate-y-0.5"
+                className="group flex-1 min-w-[160px] inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-purple-600 text-white hover:bg-white hover:text-black font-medium transition-all duration-300 shadow-lg shadow-purple-900/50"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" />
                 <span>Kirim Email</span>
               </a>
 
@@ -80,10 +80,10 @@ export function ContactSection({ socialLinks, emailAddress = 'hello@example.com'
                 href={gmailWebUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 text-white/90 font-medium transition-all hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 text-white/90 hover:bg-white hover:text-black hover:border-white font-medium transition-all duration-300"
                 title="Buka langsung di Web Gmail"
               >
-                <ExternalLink className="w-4 h-4 text-purple-300" />
+                <ExternalLink className="w-4 h-4 text-purple-300 group-hover:text-black transition-colors duration-300" />
                 <span>Gmail Web</span>
               </a>
 
@@ -91,16 +91,16 @@ export function ContactSection({ socialLinks, emailAddress = 'hello@example.com'
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 text-white/90 font-medium transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 text-white/90 hover:bg-white hover:text-black hover:border-white font-medium transition-all duration-300 cursor-pointer"
               >
                 {copied ? (
                   <>
-                    <Check className="w-4 h-4 text-green-400" />
-                    <span className="text-green-300">Tersalin!</span>
+                    <Check className="w-4 h-4 text-green-400 group-hover:text-green-800 transition-colors duration-300" />
+                    <span className="text-green-300 group-hover:text-black transition-colors duration-300">Tersalin!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4 text-purple-300" />
+                    <Copy className="w-4 h-4 text-purple-300 group-hover:text-black transition-colors duration-300" />
                     <span>Salin Email</span>
                   </>
                 )}
@@ -123,9 +123,9 @@ export function ContactSection({ socialLinks, emailAddress = 'hello@example.com'
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/40 hover:bg-white/10 text-white/80 hover:text-white transition-all shadow-md hover:-translate-y-0.5"
+                className="group flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 border border-white/10 text-white/80 hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-md"
               >
-                <Icon className="w-5 h-5 text-purple-400" />
+                <Icon className="w-5 h-5 text-purple-400 group-hover:text-black transition-colors duration-300" />
                 <span className="text-sm font-medium">{item.label}</span>
               </a>
             )

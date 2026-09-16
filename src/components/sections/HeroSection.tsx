@@ -26,16 +26,16 @@ export function HeroSection({ name, expertise, roles, tagline, avatarSrc }: Hero
     .slice(0, 2)
 
   return (
-    <section id="hero" className="py-16 md:py-20 px-4 max-w-5xl mx-auto flex items-center min-h-[80vh]">
+    <section id="hero" className="py-12 md:py-16 px-4 max-w-4xl mx-auto flex items-center min-h-[75vh]">
       <motion.div
-        className="w-full flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-14"
+        className="w-full flex flex-col-reverse md:flex-row items-center justify-center gap-6 md:gap-8"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
         variants={staggerContainer}
       >
         {/* Left Column: Text & CTAs */}
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-5">
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-4">
           {/* Status / Welcome Badge */}
           <motion.div variants={fadeInUpVariant} transition={{ duration: 0.4 }}>
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs md:text-sm font-medium shadow-sm">
@@ -80,18 +80,18 @@ export function HeroSection({ name, expertise, roles, tagline, avatarSrc }: Hero
             <button
               type="button"
               onClick={() => scrollTo('projects')}
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-medium transition-all shadow-lg shadow-purple-900/40 hover:shadow-purple-700/50 hover:-translate-y-0.5 cursor-pointer"
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-purple-600 text-white font-medium text-sm md:text-base border-none hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-purple-900/40 cursor-pointer"
             >
               <span>Lihat Proyek</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" />
             </button>
 
             <button
               type="button"
               onClick={() => scrollTo('contact')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 text-white/90 font-medium transition-all hover:-translate-y-0.5 cursor-pointer"
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/10 text-white/90 font-medium text-sm md:text-base border-none hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-black/20 cursor-pointer"
             >
-              <Mail className="w-4 h-4 text-purple-300" />
+              <Mail className="w-4 h-4 text-purple-300 group-hover:text-black transition-colors duration-300" />
               <span>Hubungi Saya</span>
             </button>
           </motion.div>
@@ -107,7 +107,7 @@ export function HeroSection({ name, expertise, roles, tagline, avatarSrc }: Hero
           <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl blur-2xl opacity-40 group-hover:opacity-70 transition duration-500 pointer-events-none" />
 
           {/* Photo frame */}
-          <div className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-3xl overflow-hidden border-2 border-purple-500/40 bg-purple-950/40 backdrop-blur-md shadow-2xl shadow-purple-950/80 flex items-center justify-center">
+          <div className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-3xl overflow-hidden border-2 border-purple-500/40 bg-purple-950/80 shadow-2xl shadow-purple-950/80 flex items-center justify-center">
             {!imgError ? (
               <img
                 src={avatarSrc}

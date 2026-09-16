@@ -48,7 +48,7 @@ export function TimelineSection({ experiences, education, certificates }: Timeli
                 <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-purple-600 border-4 border-[#0d0010] shadow-[0_0_12px_rgba(168,85,247,0.9)] group-hover:scale-125 group-hover:bg-purple-400 transition-all duration-300" />
 
                 {/* Content Card */}
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-purple-500/40 rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.07] shadow-xl shadow-black/40">
+                <div className="bg-[#0e0826]/85 border border-purple-500/20 hover:border-purple-500/50 rounded-2xl p-6 transition-all duration-300 hover:bg-[#130b33]/90 shadow-xl shadow-black/60">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                     <div>
                       <h4 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
@@ -117,7 +117,7 @@ export function TimelineSection({ experiences, education, certificates }: Timeli
                 <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-purple-600 border-4 border-[#0d0010] shadow-[0_0_12px_rgba(168,85,247,0.9)] group-hover:scale-125 group-hover:bg-purple-400 transition-all duration-300" />
 
                 {/* Content Card */}
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-purple-500/40 rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.07] shadow-xl shadow-black/40">
+                <div className="bg-[#0e0826]/85 border border-purple-500/20 hover:border-purple-500/50 rounded-2xl p-6 transition-all duration-300 hover:bg-[#130b33]/90 shadow-xl shadow-black/60">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
                     <div>
                       <h4 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
@@ -174,7 +174,7 @@ export function TimelineSection({ experiences, education, certificates }: Timeli
                 <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-purple-600 border-4 border-[#0d0010] shadow-[0_0_12px_rgba(168,85,247,0.9)] group-hover:scale-125 group-hover:bg-purple-400 transition-all duration-300" />
 
                 {/* Content Card */}
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-purple-500/40 rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.07] shadow-xl shadow-black/40">
+                <div className="bg-[#0e0826]/85 border border-purple-500/20 hover:border-purple-500/50 rounded-2xl p-6 transition-all duration-300 hover:bg-[#130b33]/90 shadow-xl shadow-black/60">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                     <div>
                       <h4 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">
@@ -193,10 +193,10 @@ export function TimelineSection({ experiences, education, certificates }: Timeli
                           href={cert.credentialUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-xs text-purple-300 hover:text-white transition-colors underline underline-offset-4"
+                          className="group flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-purple-300 hover:bg-white hover:text-black hover:border-white transition-all duration-300"
                         >
-                          Credential
-                          <ExternalLink className="w-3 h-3" />
+                          <span>Credential</span>
+                          <ExternalLink className="w-3 h-3 text-purple-300 group-hover:text-black transition-colors duration-300" />
                         </a>
                       )}
                     </div>

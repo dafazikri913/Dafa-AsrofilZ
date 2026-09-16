@@ -36,9 +36,10 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         href={project.linkHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-sm text-purple-300 hover:text-purple-100 transition-colors mt-auto"
+        className="group inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium text-white/90 hover:bg-white hover:text-black hover:border-white transition-all duration-300 mt-auto self-start"
       >
-        View Project <ExternalLink className="w-3.5 h-3.5" />
+        <span>View Project</span>
+        <ExternalLink className="w-3.5 h-3.5 text-purple-300 group-hover:text-black transition-colors duration-300" />
       </a>
     </motion.div>
   )
