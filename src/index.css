@@ -176,3 +176,30 @@
   animation: float-orb-4 16s ease-in-out infinite;
   will-change: transform;
 }
+
+/* ─── Butter-Smooth Compositor Scroll Reveal ─────────────────────────── */
+.reveal-init {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-orb-1,
+  .animate-orb-2,
+  .animate-orb-3,
+  .animate-orb-4 {
+    animation: none;
+  }
+}

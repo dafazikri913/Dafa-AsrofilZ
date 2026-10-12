@@ -1,0 +1,32 @@
+---
+// Hardware-accelerated GPU-optimized Gradient Background
+// Eliminates expensive blur filters on moving fixed elements to prevent scroll lag
+---
+
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0 bg-[#030014] contain-strict isolation-isolate">
+  {/* Base Deep Background */}
+  <div class="absolute inset-0 bg-[#030014]"></div>
+
+  {/* Orb 1: Top Left - Electric Blue & Indigo (Natural soft radial decay, 0 blur jank) */}
+  <div
+    class="animate-orb-1 absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.32)_0%,rgba(79,70,229,0.2)_35%,rgba(79,70,229,0.06)_55%,transparent_75%)] transform-gpu will-change-transform pointer-events-none"
+  ></div>
+
+  {/* Orb 2: Top Right - Rich Purple & Violet */}
+  <div
+    class="animate-orb-2 absolute top-1/4 -right-32 w-[650px] h-[650px] rounded-full bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.32)_0%,rgba(124,58,237,0.2)_35%,rgba(124,58,237,0.06)_55%,transparent_75%)] transform-gpu will-change-transform pointer-events-none"
+  ></div>
+
+  {/* Orb 3: Middle Left - Royal Blue & Cyan Accent */}
+  <div
+    class="animate-orb-3 absolute top-2/3 -left-40 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.22)_0%,rgba(59,130,246,0.16)_35%,rgba(59,130,246,0.05)_55%,transparent_75%)] transform-gpu will-change-transform pointer-events-none"
+  ></div>
+
+  {/* Orb 4: Bottom Right - Deep Indigo & Magenta */}
+  <div
+    class="animate-orb-4 absolute -bottom-40 right-0 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.28)_0%,rgba(168,85,247,0.2)_35%,rgba(168,85,247,0.06)_55%,transparent_75%)] transform-gpu will-change-transform pointer-events-none"
+  ></div>
+
+  {/* Subtle Radial Vignette Overlay for Depth */}
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_25%,rgba(3,0,20,0.75)_100%)] pointer-events-none"></div>
+</div>

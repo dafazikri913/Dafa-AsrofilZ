@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import GradientBackground from '@/components/ui/GradientBackground.astro'
+import HeroSection from '@/components/sections/HeroSection.astro'
+import AboutSection from '@/components/sections/AboutSection.astro'
+import TimelineSection from '@/components/sections/TimelineSection.astro'
+import ProjectsSection from '@/components/sections/ProjectsSection.astro'
+import ContactSection from '@/components/sections/ContactSection.astro'
+import DynamicIsland from '@/components/ui/DynamicIsland.astro'
+import heroImg from '@/assets/hero.png'
+import { HERO, ABOUT, EXPERIENCES, EDUCATION, CERTIFICATES, PROJECTS, NAV_ITEMS, SOCIAL_ITEMS } from '@/data/portfolio'
+
+const avatarImageSrc = typeof heroImg === 'string' ? heroImg : heroImg.src
+---
+
+<Layout>
+  <div class="relative min-h-screen bg-[#030014] text-white selection:bg-purple-500/30 selection:text-purple-200">
+    <!-- Zero-Jank Hardware Accelerated Ambient Gradient Background -->
+    <GradientBackground />
+
+    <!-- Main Content Layer -->
+    <main class="relative z-10">
+      <HeroSection
+        name={HERO.name}
+        expertise={HERO.expertise}
+        roles={HERO.roles}
+        tagline={HERO.tagline}
+        avatarSrc={avatarImageSrc}
+      />
+      <AboutSection bio={ABOUT.bio} skills={ABOUT.skills} />
+      <TimelineSection
+        experiences={EXPERIENCES}
+        education={EDUCATION}
+        certificates={CERTIFICATES}
+      />
+      <ProjectsSection projects={PROJECTS} />
+      <ContactSection socialLinks={SOCIAL_ITEMS} emailAddress="hello@example.com" />
+    </main>
+
+    <!-- Floating Dynamic Island Dock Navigation -->
+    <DynamicIsland navItems={NAV_ITEMS} socialItems={SOCIAL_ITEMS} />
+  </div>
+</Layout>

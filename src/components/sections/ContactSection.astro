@@ -1,0 +1,136 @@
+---
+import { Mail, Copy, Check, ExternalLink, Send } from 'lucide-react'
+import type { SocialItem } from '@/data/portfolio'
+
+interface Props {
+  socialLinks: SocialItem[]
+  emailAddress?: string
+}
+
+const { socialLinks, emailAddress = 'hello@example.com' } = Astro.props
+
+const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`
+const mailtoUrl = `mailto:${emailAddress}`
+---
+
+<section id="contact" class="py-12 md:py-14 px-4 max-w-3xl mx-auto pb-44 md:pb-48 border-t border-purple-500/10">
+  <h2 class="reveal-init text-3xl font-bold text-white mb-8 text-center">Contact Me</h2>
+
+  <div class="flex flex-col gap-8 text-center">
+    {/* Subtitle */}
+    <p class="reveal-init text-white/70 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+      Tertarik untuk bekerja sama, diskusi proyek, atau sekadar menyapa?
+      Kirim pesan langsung ke email saya atau terhubung melalui media sosial.
+    </p>
+
+    {/* Main Email Direct Action Card */}
+    <div class="reveal-init relative bg-[#0e0826]/90 border border-purple-500/30 rounded-3xl p-8 md:p-10 shadow-2xl shadow-purple-950/60 overflow-hidden group hover:border-purple-500/60 transition-all duration-300">
+      {/* Subtle Ambient Background Glow */}
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.25)_0%,transparent_70%)] pointer-events-none transition-all duration-500"></div>
+
+      <div class="relative z-10 flex flex-col items-center gap-6">
+        <div class="w-16 h-16 rounded-2xl bg-purple-900/50 border border-purple-400/40 flex items-center justify-center text-purple-300 shadow-lg shadow-purple-950/80 group-hover:scale-110 transition-transform duration-300">
+          <Mail className="w-8 h-8" />
+        </div>
+
+        <div>
+          <p class="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-1">Direct Email</p>
+          <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight hover:text-purple-300 transition-colors">
+            {emailAddress}
+          </h3>
+        </div>
+
+        {/* Action Buttons */}
+        <div class="flex flex-wrap items-center justify-center gap-4 w-full max-w-md pt-2">
+          {/* Mailto / Default Mail App Button */}
+          <a
+            href={mailtoUrl}
+            class="group flex-1 min-w-[160px] inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-purple-600 text-white hover:bg-white hover:text-black font-medium transition-all duration-300 shadow-lg shadow-purple-900/50 cursor-pointer"
+          >
+            <Send className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" />
+            <span>Kirim Email</span>
+          </a>
+
+          {/* Web Gmail Button */}
+          <a
+            href={gmailWebUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 text-white/90 hover:bg-white hover:text-black hover:border-white font-medium transition-all duration-300 cursor-pointer"
+            title="Buka langsung di Web Gmail"
+          >
+            <ExternalLink className="w-4 h-4 text-purple-300 group-hover:text-black transition-colors duration-300" />
+            <span>Gmail Web</span>
+          </a>
+
+          {/* Copy Email Button */}
+          <button
+            type="button"
+            id="copy-email-btn"
+            data-email={emailAddress}
+            class="group inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 text-white/90 hover:bg-white hover:text-black hover:border-white font-medium transition-all duration-300 cursor-pointer"
+          >
+            <span id="copy-icon" class="flex items-center gap-2">
+              <Copy className="w-4 h-4 text-purple-300 group-hover:text-black transition-colors duration-300" />
+              <span>Salin Email</span>
+            </span>
+            <span id="copied-icon" class="hidden items-center gap-2 text-green-400 group-hover:text-black transition-colors duration-300">
+              <Check className="w-4 h-4 text-green-400 group-hover:text-black" />
+              <span>Tersalin!</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    {/* Social Links Cards */}
+    <div class="reveal-init flex items-center justify-center gap-4 flex-wrap pt-4">
+      {socialLinks.map((item) => {
+        const Icon = item.icon
+        return (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 border border-white/10 text-white/80 hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-md"
+          >
+            <Icon className="w-5 h-5 text-purple-400 group-hover:text-black transition-colors duration-300" />
+            <span class="text-sm font-medium">{item.label}</span>
+          </a>
+        )
+      })}
+    </div>
+
+    {/* Footer Note */}
+    <p class="reveal-init text-xs text-white/30 pt-8">
+      © 2026 Dafa Asrofil Z. All rights reserved.
+    </p>
+  </div>
+</section>
+
+<script is:inline>
+  const copyBtn = document.getElementById('copy-email-btn');
+  if (copyBtn) {
+    const copyIcon = document.getElementById('copy-icon');
+    const copiedIcon = document.getElementById('copied-icon');
+    let timeoutId;
+
+    copyBtn.addEventListener('click', () => {
+      const email = copyBtn.getAttribute('data-email') || '';
+      navigator.clipboard.writeText(email).then(() => {
+        if (copyIcon && copiedIcon) {
+          copyIcon.classList.add('hidden');
+          copiedIcon.classList.remove('hidden');
+          copiedIcon.classList.add('flex');
+          
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            copyIcon.classList.remove('hidden');
+            copiedIcon.classList.add('hidden');
+            copiedIcon.classList.remove('flex');
+          }, 2500);
+        }
+      });
+    });
+  }
+</script>

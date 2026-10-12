@@ -1,0 +1,71 @@
+---
+import '@/index.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Dafa Asrofil Z | Frontend Developer & UI/UX Specialist',
+  description = 'Portofolio profesional Dafa Asrofil Z - Pengembang Web yang berfokus pada pembuatan antarmuka modern, cepat, dan responsif.',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="id" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Dafa Asrofil Z" />
+    
+    <!-- OpenGraph / Social Cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Dafa Asrofil Z Portfolio" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <!-- Performance & Display -->
+    <meta name="theme-color" content="#030014" />
+  </head>
+  <body class="bg-[#030014] text-white selection:bg-purple-500/30 selection:text-purple-200 antialiased overflow-x-hidden min-h-screen">
+    <slot />
+
+    <!-- 0-Jank Hardware Accelerated Scroll Observer -->
+    <script is:inline>
+      const initScrollReveals = () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.08,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal-init').forEach((el) => {
+          observer.observe(el);
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollReveals);
+      } else {
+        initScrollReveals();
+      }
+    </script>
+  </body>
+</html>
