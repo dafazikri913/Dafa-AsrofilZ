@@ -76,15 +76,25 @@ export const SOCIAL_ITEMS: SocialItem[] = [
 
 export const SKILLS: string[] = [
   'React',
+  'Next.js',
+  'Astro',
   'TypeScript',
-  'Node.js',
   'Tailwind CSS',
+  'Magic UI',
+  'Node.js',
+  'Express',
+  'Go',
+  'PostgreSQL',
+  'Prisma',
+  'Docker',
+  'Playwright',
+  'n8n',
+  'Framer Motion',
+  'Vite',
   'Git',
   'Figma',
-  'Next.js',
-  'Vite',
-  'Framer Motion',
 ]
+
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
