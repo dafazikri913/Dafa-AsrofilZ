@@ -54,14 +54,6 @@ export function DynamicIsland({ navItems, socialItems }: DynamicIslandProps) {
         aria-label="Sidebar Navigation Dock"
         className="fixed left-3 lg:left-6 xl:left-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col p-3 rounded-2xl bg-[#0b0521]/90 backdrop-blur-xl border border-purple-500/25 shadow-2xl shadow-purple-950/70 w-[172px] xl:w-[188px] transition-all duration-300"
       >
-        {/* Header Indicator */}
-        <div className="px-2.5 py-1 mb-2 flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-          <span className="text-[10px] uppercase tracking-wider text-purple-300/80 font-semibold font-mono">
-            Navigation
-          </span>
-          <span className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_#a855f7] animate-pulse" />
-        </div>
-
         {/* Navigation Items (Icon + Label in Pill Form) */}
         <div className="flex flex-col gap-1.5">
           {navItems.map((item) => {
@@ -84,11 +76,6 @@ export function DynamicIsland({ navItems, socialItems }: DynamicIslandProps) {
                   }`}
                 />
                 <span className="truncate tracking-tight">{item.label}</span>
-                <span
-                  className={`ml-auto w-2 h-2 rounded-full bg-white transition-opacity duration-200 ${
-                    isActive ? 'opacity-100 shadow-[0_0_6px_#ffffff]' : 'opacity-0'
-                  }`}
-                />
               </button>
             )
           })}
