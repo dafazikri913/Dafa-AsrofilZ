@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
-import { ArrowRight, Sparkles, Mail } from 'lucide-react'
+import { ArrowRight, Sparkles, Mail, FileDown } from 'lucide-react'
 import { staggerContainer, fadeInUpVariant } from '@/lib/animations'
 import { useScrollTo } from '@/hooks/useScrollTo'
 
@@ -40,7 +40,7 @@ export function HeroSection({ name, expertise, roles, tagline, avatarSrc }: Hero
           <motion.div variants={fadeInUpVariant} transition={{ duration: 0.4 }}>
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs md:text-sm font-medium shadow-sm">
               <Sparkles className="w-4 h-4 text-purple-400" />
-              <span>Halo, Saya {name}</span>
+              <span>Hello, I'm {name}</span>
             </span>
           </motion.div>
 
@@ -75,24 +75,33 @@ export function HeroSection({ name, expertise, roles, tagline, avatarSrc }: Hero
           <motion.div
             variants={fadeInUpVariant}
             transition={{ duration: 0.5 }}
-            className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2"
+            className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-1"
           >
             <button
               type="button"
               onClick={() => scrollTo('projects')}
-              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-purple-600 text-white font-medium text-sm md:text-base border-none hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-purple-900/40 cursor-pointer"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-purple-600 text-white font-medium text-sm md:text-base border-none hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-purple-900/40 cursor-pointer"
             >
-              <span>Lihat Proyek</span>
+              <span>View Projects</span>
               <ArrowRight className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" />
             </button>
+
+            <a
+              href="/cv.pdf"
+              download="Dafa_Asrofil_Z_CV.pdf"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.08] border border-white/20 text-white font-medium text-sm md:text-base hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-lg shadow-black/20 cursor-pointer"
+            >
+              <FileDown className="w-4 h-4 text-purple-300 group-hover:text-black transition-colors duration-300" />
+              <span>Download CV</span>
+            </a>
 
             <button
               type="button"
               onClick={() => scrollTo('contact')}
-              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/10 text-white/90 font-medium text-sm md:text-base border-none hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-black/20 cursor-pointer"
+              className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] border border-white/10 text-white/80 font-medium text-sm md:text-base hover:bg-white/15 hover:text-white hover:border-white/20 transition-all duration-300 cursor-pointer"
             >
-              <Mail className="w-4 h-4 text-purple-300 group-hover:text-black transition-colors duration-300" />
-              <span>Hubungi Saya</span>
+              <Mail className="w-4 h-4 text-purple-300 transition-colors duration-300" />
+              <span>Contact Me</span>
             </button>
           </motion.div>
         </div>

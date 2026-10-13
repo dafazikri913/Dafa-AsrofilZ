@@ -127,7 +127,7 @@ export const PROJECTS: Project[] = [
 export const HERO = {
   name: 'Dafa Asrofil Z',
   expertise: 'Frontend Developer & UI/UX Specialist',
-  tagline: 'Pengembang Web yang berfokus pada pembuatan antarmuka antarmuka modern, cepat, dan responsif.',
+  tagline: 'Web Developer specialized in building modern, high-performance, and responsive user interfaces.',
   roles: ['Frontend Developer', 'UI/UX Specialist'],
   avatarSrc: '/profile.jpg',
 }
