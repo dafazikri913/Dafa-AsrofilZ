@@ -31,11 +31,11 @@ const TECHNOLOGIES = [
 <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
   {TECHNOLOGIES.map((tech) => (
     <div
-      class="group relative flex flex-col items-center justify-center p-3 sm:p-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/50 hover:bg-[#120a2e]/90 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-950/50 transition-all duration-300 cursor-default"
+      class="group relative flex flex-col items-center justify-center p-3 sm:p-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/60 hover:bg-[#120a2e]/90 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] transition-all duration-300 cursor-default"
       title={tech.name}
     >
       {/* Icon Area */}
-      <div class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+      <div class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center mb-2 transition-colors duration-300">
         {tech.id === 'react' && (
           <svg viewBox="-11.5 -10.23 23 20.46" class="w-7 h-7" fill="none">
             <circle cx="0" cy="0" r="2.05" fill="#61DAFB"/>
