@@ -9,14 +9,58 @@ interface Props {
 }
 
 const { experiences, education, certificates } = Astro.props
+
+const totalCount = experiences.length + education.length + certificates.length
 ---
 
 <section id="experience" class="py-12 md:py-14 px-4 max-w-4xl mx-auto border-t border-purple-500/10">
-  <h2 class="reveal-init text-3xl font-bold text-white mb-8 text-center">Experience & Qualifications</h2>
+  <h2 class="reveal-init text-3xl font-bold text-white mb-6 text-center">Experience & Qualifications</h2>
 
-  <div class="flex flex-col gap-16">
+  {/* Category Filter Tabs */}
+  <div class="reveal-init flex items-center justify-center gap-2 mb-10 overflow-x-auto pb-1 scrollbar-none flex-wrap">
+    <button
+      type="button"
+      data-timeline-filter="all"
+      class="timeline-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer bg-purple-600 text-white border border-purple-400/40 shadow-md shadow-purple-900/40 whitespace-nowrap flex items-center gap-1.5"
+    >
+      <span>All</span>
+      <span class="opacity-80 font-mono text-xs">({totalCount})</span>
+    </button>
+
+    <button
+      type="button"
+      data-timeline-filter="experience"
+      class="timeline-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer bg-white/[0.04] text-white/70 hover:text-white hover:bg-white/10 border border-white/10 whitespace-nowrap flex items-center gap-1.5"
+    >
+      <Briefcase className="w-3.5 h-3.5 text-purple-300" />
+      <span>Work Experience</span>
+      <span class="opacity-80 font-mono text-xs">({experiences.length})</span>
+    </button>
+
+    <button
+      type="button"
+      data-timeline-filter="education"
+      class="timeline-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer bg-white/[0.04] text-white/70 hover:text-white hover:bg-white/10 border border-white/10 whitespace-nowrap flex items-center gap-1.5"
+    >
+      <GraduationCap className="w-3.5 h-3.5 text-purple-300" />
+      <span>Education</span>
+      <span class="opacity-80 font-mono text-xs">({education.length})</span>
+    </button>
+
+    <button
+      type="button"
+      data-timeline-filter="certificates"
+      class="timeline-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer bg-white/[0.04] text-white/70 hover:text-white hover:bg-white/10 border border-white/10 whitespace-nowrap flex items-center gap-1.5"
+    >
+      <Award className="w-3.5 h-3.5 text-purple-300" />
+      <span>Certificates</span>
+      <span class="opacity-80 font-mono text-xs">({certificates.length})</span>
+    </button>
+  </div>
+
+  <div class="flex flex-col gap-14">
     {/* ─── WORK EXPERIENCE SECTION ────────────────────────────────────────── */}
-    <div class="flex flex-col gap-8">
+    <div data-timeline-category="experience" class="timeline-category-section flex flex-col gap-8">
       <div class="reveal-init flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 shadow-md shadow-purple-950/40">
           <Briefcase className="w-5 h-5" />
@@ -82,7 +126,7 @@ const { experiences, education, certificates } = Astro.props
     </div>
 
     {/* ─── EDUCATION SECTION ─────────────────────────────────────────────── */}
-    <div class="flex flex-col gap-8">
+    <div data-timeline-category="education" class="timeline-category-section flex flex-col gap-8">
       <div class="reveal-init flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 shadow-md shadow-purple-950/40">
           <GraduationCap className="w-5 h-5" />
@@ -134,7 +178,7 @@ const { experiences, education, certificates } = Astro.props
     </div>
 
     {/* ─── CERTIFICATES SECTION ──────────────────────────────────────────── */}
-    <div class="flex flex-col gap-8">
+    <div data-timeline-category="certificates" class="timeline-category-section flex flex-col gap-8">
       <div class="reveal-init flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 shadow-md shadow-purple-950/40">
           <Award className="w-5 h-5" />
@@ -197,3 +241,41 @@ const { experiences, education, certificates } = Astro.props
     </div>
   </div>
 </section>
+
+<script is:inline>
+  const setupTimelineTabs = () => {
+    const tabs = document.querySelectorAll('.timeline-tab');
+    const sections = document.querySelectorAll('.timeline-category-section');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const filter = tab.getAttribute('data-timeline-filter');
+
+        // Update tabs styling
+        tabs.forEach((t) => {
+          t.classList.remove('active', 'bg-purple-600', 'text-white', 'border-purple-400/40', 'shadow-md', 'shadow-purple-900/40');
+          t.classList.add('bg-white/[0.04]', 'text-white/70', 'border-white/10');
+        });
+
+        tab.classList.add('active', 'bg-purple-600', 'text-white', 'border-purple-400/40', 'shadow-md', 'shadow-purple-900/40');
+        tab.classList.remove('bg-white/[0.04]', 'text-white/70', 'border-white/10');
+
+        // Filter sections with smooth visibility
+        sections.forEach((sec) => {
+          const category = sec.getAttribute('data-timeline-category');
+          if (filter === 'all' || category === filter) {
+            sec.classList.remove('hidden');
+          } else {
+            sec.classList.add('hidden');
+          }
+        });
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTimelineTabs);
+  } else {
+    setupTimelineTabs();
+  }
+</script>

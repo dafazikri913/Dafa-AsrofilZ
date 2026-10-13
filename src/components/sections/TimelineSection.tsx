@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'motion/react'
 import { Briefcase, GraduationCap, Award, Calendar, MapPin, ExternalLink } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -12,18 +13,80 @@ interface TimelineSectionProps {
 }
 
 export function TimelineSection({ experiences, education, certificates }: TimelineSectionProps) {
+  const [filter, setFilter] = useState<'all' | 'experience' | 'education' | 'certificates'>('all')
+  const totalCount = experiences.length + education.length + certificates.length
+
   return (
     <section id="experience" className="py-12 md:py-14 px-4 max-w-4xl mx-auto border-t border-purple-500/10">
       <SectionHeading>Experience & Qualifications</SectionHeading>
+
+      {/* Category Filter Tabs */}
+      <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto pb-1 scrollbar-none flex-wrap">
+        <button
+          type="button"
+          onClick={() => setFilter('all')}
+          className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+            filter === 'all'
+              ? 'bg-purple-600 text-white border border-purple-400/40 shadow-md shadow-purple-900/40'
+              : 'bg-white/[0.04] text-white/70 hover:text-white hover:bg-white/10 border border-white/10'
+          }`}
+        >
+          <span>All</span>
+          <span className="opacity-80 font-mono text-xs">({totalCount})</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setFilter('experience')}
+          className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+            filter === 'experience'
+              ? 'bg-purple-600 text-white border border-purple-400/40 shadow-md shadow-purple-900/40'
+              : 'bg-white/[0.04] text-white/70 hover:text-white hover:bg-white/10 border border-white/10'
+          }`}
+        >
+          <Briefcase className="w-3.5 h-3.5 text-purple-300" />
+          <span>Work Experience</span>
+          <span className="opacity-80 font-mono text-xs">({experiences.length})</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setFilter('education')}
+          className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+            filter === 'education'
+              ? 'bg-purple-600 text-white border border-purple-400/40 shadow-md shadow-purple-900/40'
+              : 'bg-white/[0.04] text-white/70 hover:text-white hover:bg-white/10 border border-white/10'
+          }`}
+        >
+          <GraduationCap className="w-3.5 h-3.5 text-purple-300" />
+          <span>Education</span>
+          <span className="opacity-80 font-mono text-xs">({education.length})</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setFilter('certificates')}
+          className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+            filter === 'certificates'
+              ? 'bg-purple-600 text-white border border-purple-400/40 shadow-md shadow-purple-900/40'
+              : 'bg-white/[0.04] text-white/70 hover:text-white hover:bg-white/10 border border-white/10'
+          }`}
+        >
+          <Award className="w-3.5 h-3.5 text-purple-300" />
+          <span>Certificates</span>
+          <span className="opacity-80 font-mono text-xs">({certificates.length})</span>
+        </button>
+      </div>
 
       <motion.div
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
         variants={staggerContainer}
-        className="flex flex-col gap-16"
+        className="flex flex-col gap-14"
       >
         {/* ─── WORK EXPERIENCE SECTION ────────────────────────────────────────── */}
+        {(filter === 'all' || filter === 'experience') && (
         <motion.div variants={fadeInUpVariant} className="flex flex-col gap-8">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 shadow-md shadow-purple-950/40">
@@ -91,8 +154,10 @@ export function TimelineSection({ experiences, education, certificates }: Timeli
             ))}
           </div>
         </motion.div>
+        )}
 
         {/* ─── EDUCATION SECTION ─────────────────────────────────────────────── */}
+        {(filter === 'all' || filter === 'education') && (
         <motion.div variants={fadeInUpVariant} className="flex flex-col gap-8">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 shadow-md shadow-purple-950/40">
@@ -148,8 +213,10 @@ export function TimelineSection({ experiences, education, certificates }: Timeli
             ))}
           </div>
         </motion.div>
+        )}
 
         {/* ─── CERTIFICATES SECTION ──────────────────────────────────────────── */}
+        {(filter === 'all' || filter === 'certificates') && (
         <motion.div variants={fadeInUpVariant} className="flex flex-col gap-8">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 shadow-md shadow-purple-950/40">
@@ -214,6 +281,7 @@ export function TimelineSection({ experiences, education, certificates }: Timeli
             ))}
           </div>
         </motion.div>
+        )}
       </motion.div>
     </section>
   )
