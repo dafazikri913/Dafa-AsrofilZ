@@ -1,4 +1,4 @@
-# Dafa Asrofil Z — Personal Portfolio
+# My Personal Portfolio Website
 
 ## Tech Stack
 
