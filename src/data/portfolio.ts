@@ -78,6 +78,8 @@ export const SKILLS: string[] = [
   'React',
   'Next.js',
   'Astro',
+  'TanStack',
+  'TanStack Start',
   'TypeScript',
   'Tailwind CSS',
   'Magic UI',
