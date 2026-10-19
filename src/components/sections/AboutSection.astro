@@ -1,5 +1,5 @@
 ---
-import TechGrid from '@/components/ui/TechGrid.astro'
+import TechGrid, { totalStacks } from '@/components/ui/TechGrid.astro'
 
 interface Props {
   bio: string[]
@@ -26,7 +26,7 @@ const { bio } = Astro.props
     <div class="reveal-init">
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-xs uppercase tracking-widest text-purple-400 font-semibold">Technologies & Tools</h3>
-        <span class="text-xs text-white/40">18 Stacks</span>
+        <span class="text-xs text-white/40">{totalStacks} Stacks</span>
       </div>
       <TechGrid />
     </div>

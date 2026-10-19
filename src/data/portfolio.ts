@@ -93,6 +93,9 @@ export const SKILLS: string[] = [
   'Vite',
   'Git',
   'Figma',
+  'Windows',
+  'Ubuntu',
+  'Kali Linux',
 ]
 
 
